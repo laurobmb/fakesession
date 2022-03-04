@@ -19,7 +19,7 @@ def hostname():
 async def root():
     return 'up'
 
-@app.post("/cookie/")
+@app.get("/cookie/")
 async def create_cookie():
     content = {"message": "Come to the dark side, we have cookies"}
     response = JSONResponse(content=content)
