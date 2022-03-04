@@ -4,7 +4,7 @@ import uvicorn
 from subprocess import Popen
 import subprocess
 
-app = FastAPI()
+app = FastAPI(title="Fake cookie", docs_url = None, redoc_url = None)
 
 def hostname():
     process = subprocess.run(['hostname'], 
