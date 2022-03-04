@@ -1,0 +1,45 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fastapicookie
+  labels:
+    name: fastapicookie
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapicookie-deployment
+  namespace: fastapicookie
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: fastapicookie
+  template:
+    metadata:
+      labels:
+        app: fastapicookie
+      namespace: fastapicookie
+    spec:
+      containers:
+      - name: fastapicookie
+        image: quay.io/lagomes/fastapicookie:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http-port
+          containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapicookie-service
+  namespace: fastapicookie  
+spec:
+  type: ClusterIP
+  selector:
+    app: fastapicookie
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
