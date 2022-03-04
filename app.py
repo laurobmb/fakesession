@@ -21,7 +21,7 @@ async def root():
 
 @app.get("/cookie/")
 async def create_cookie():
-    content = {"message": "Come to the dark side, we have cookies"}
+    content = {"message": "we have cookies"}
     response = JSONResponse(content=content)
     response.set_cookie(key="podhostnamesession", value=hostname())
     return response
