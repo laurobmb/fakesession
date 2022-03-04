@@ -1,4 +1,4 @@
-FROM python:3.11-rc-slim
+FROM python:3.10-slim
 LABEL maintainer="Lauro Gomes <laurobmb@gmail.com>"
 WORKDIR /app
 COPY . .
