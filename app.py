@@ -7,13 +7,8 @@ import subprocess
 app = FastAPI(title="Fake cookie", docs_url = None, redoc_url = None)
 
 def hostname():
-    process = subprocess.run(['hostname'], 
-        check=True, 
-        stdout=subprocess.PIPE, 
-        universal_newlines=True
-    )
-    output = process.stdout
-    return output
+    f = open("/etc/hostname")
+    return f.read()
 
 @app.get("/")
 async def root():

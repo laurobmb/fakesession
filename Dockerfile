@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM ubi8/python-39:latest
 LABEL maintainer="Lauro Gomes <laurobmb@gmail.com>"
 WORKDIR /app
 COPY . .
