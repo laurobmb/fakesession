@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: fastapicookie
-        image: quay.io/lagomes/fastapicookie:latest
+        image: quay.io/lagomes/fastapicookie:rhel-image
         imagePullPolicy: Always
         ports:
         - name: http-port
