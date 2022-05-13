@@ -4,11 +4,19 @@
 
 ### Build
 	podman build -t fakesession .
+
 ### Run 
 	podman run -it --rm --name fastapi -p8080:8080 fakesession
-### Test
+
+### get cookie
 	curl -c - http://127.0.0.1:8080/cookie/
+
 #### Para coletar os cookies:
 	curl -c - http://url-da-aplciacao
+
 #### para efetuar as chamadas com o cookie:
-	curl -b 'nome_do_cookie=valor' http://url-da-aplicacao
+	curl -b 'podhostnamesession=check_my_new_cookie' http://url-da-aplciacao:8000/read
+
+### read cookie
+	curl -c - http://127.0.0.1:8080/read
+

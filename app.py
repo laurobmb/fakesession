@@ -1,8 +1,11 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Cookie
 from fastapi.responses import JSONResponse
 import uvicorn
 from subprocess import Popen
 import subprocess
+from typing import Optional
+
+
 
 app = FastAPI(title="Fake cookie", docs_url = None, redoc_url = None)
 
@@ -21,3 +24,6 @@ async def create_cookie():
     response.set_cookie(key="podhostnamesession", value=hostname())
     return response
 
+@app.get("/read")
+async def read_items(podhostnamesession: Optional[str] = Cookie(None)):
+    return {"My cookie": podhostnamesession}
